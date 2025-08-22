@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#F8F9FA] text-right" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script rel="stylesheet" href="./tailwind.config.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body id="body">
+    <header class="bg-[#fff] right-0 py-4 top-0 fixed w-[100%] z-[4] shadow-2xl">
+        <i id="menu" class=" transition ri-menu-2-fill cursor-pointer text-left text-[2.5rem] xl:hidden lg:hidden"></i>
+        <ul id="menuClick"
+            class=" lg:flex xl:flex justify-around items-center p-4 sm:block sm:text-center transition z-10 top-0 left-0 xl:translate-y-0 lg:translate-y-[0rem] lg:static sm:translate-y-[-30rem] sm:w-[100%] sm:z-[-1] sm:bg-white sm:absolute">
+            <a class=" text-[1.5rem] hover:text-[#0B5ED7] hover:underline transition" href="#Home">
+                <li>خانه</li>
+            </a>
+            <a class=" text-[1.5rem]  hover:text-[#0B5ED7] hover:underline transition" href="#MyBlogs">
+                <li>بلاگ های من</li>
+            </a>
+            <a class=" text-[1.5rem] hover:text-[#0B5ED7] hover:underline transition" href="#comments">
+                <li>کامنت ها</li>
+            </a>
+            <a class=" text-[1.5rem]  hover:text-[#0B5ED7] hover:underline transition" href="#About-me">
+                <li>درباره من</li>
+            </a>
+        </ul>
+    </header>
+    <section id="Home"
+        class=" background lg:flex-row lg:text-right md:flex-wrap-reverse max-[1023px]:flex-col-reverse max-[1023px]:text-center z-0 mt-[7rem] mb-0 mx-auto w-[90%] rounded-s-[80%] rounded-e-[50rem]  bg-[#E9ECEF] p-12 flex justify-around items-center">
+        <div class="text-base/20">
+            <h1 class=" text-[#212529] m-auto-0 text-[3.5rem]">!به بلیتو خوش امدید</h1>
+            <p class=" text-[1.2rem]">بهترین سایت خبری ایران و بین الملل</p>
+            <a
+                class=" rounded-xl transition hover:bg-[#218838] cursor-pointer p-5 text-white text-[1.25rem] bg-[#28A745]">دنبال
+                کردن</a>
+        </div>
+        <img class=" w-200 rounded-[30rem]" src="./assets/image/background.png" alt="background">
+    </section>
+    <section id="MyBlogs" class=" min-h-[50vh] mt-12 bg-[#F8F9FA] relative">
+        <button id="addM" onclick="modalOpen()"
+            class=" rounded-xl absolute top-0 mr-45 transition hover:bg-[#218838] cursor-pointer py-5 px-6 text-white w-32 bg-[#28A745]">ساخت
+            بلاگ</button>
+        <div id="boxes">
+            <p id="warningB" class=" text-[#6C757D] text-center absolute left-0 top-[50%] right-0">بلاگی وجود ندارد لطفا
+                یکی ایجاد
+                کنید...</p>
+            <ul id="box-container" class="flex justify-evenly items-center mx-auto my-0 flex-wrap">
+
+            </ul>
+        </div>
+    </section>
+    <!-- modal -->
+    <section id="modal" class=" relative hidden justify-center items-center ml-[10rem]">
+        <div
+            class=" z-10 bottom-55 right-[-10rem] fixed flex flex-col rounded-3xl justify-center items-center bg-[#E9ECEF] p-[5rem]">
+            <i onclick="modalClose()" class=" cursor-pointer text-[2.2rem] absolute top-8 right-10 ri-close-fill"></i>
+            <input id="title" type="text" placeholder="عنوان بلاگ را وارد کنید..."
+                class=" shadow-[4px_4px_5px_#000] transition focus-visible:outline-none px-3 w-[18rem] py-3 focus:shadow-[5px_7px_10px_#000]">
+            <textarea id="des" type="text" placeholder="توضیحات بلاگ را وارد کنید..."
+                class=" mt-4 shadow-[4px_4px_5px_#000] transition focus-visible:outline-none px-3 w-[18rem] py-3 focus:shadow-[5px_7px_10px_#000]"
+                rows="5"></textarea>
+            <button onclick="add()"
+                class=" mt-4 rounded-xl transition hover:bg-[#218838] cursor-pointer py-5 px-6 text-white w-32 bg-[#28A745]">اضافه
+                کردن</button>
+        </div>
+    </section>
+    <!-- comments -->
+    <section id="comments" class="comment mx-auto my-0">
+        <ul class="commentBx w-[20rem] mr-[10%]">
+
+        </ul>
+        <div id="commentI" class="p-3 container-md">
+            <input
+                class="w-[100%] p-2 mt-2 shadow-[4px_4px_5px_#000] focus-visible:outline-none focus:shadow-[5px_7px_10px_#000]"
+                type="text" placeholder="نام خود را وارد کنید...">
+            <textarea placeholder="نظر خود را وارد کنید..."
+                class="w-[100%] focus-visible:outline-none shadow-[4px_4px_5px_#000] focus:shadow-[5px_7px_10px_#000]  p-2 mt-4"
+                rows="10"></textarea>
+            <button onclick="addComment()"
+                class="mt-2 rounded-xl transition hover:bg-[#218838] cursor-pointer py-5 px-6 text-white w-32 bg-[#28A745]">ارسال</button>
+        </div>
+    </section>
+    <footer id="About-me" class=" p-4 text-[#fff] mt-[8rem] bg-[#1f1f1f] rounded-[1rem_1rem_0_0]">
+        <div class="mx-auto my-0 w-[60%] flex justify-between items-center">
+            <div class="box">
+                <h2 class=" text-[2rem]"><span class=" text-[#28A745]">ب</span>لیتو</h2>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                    گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
+                    تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه
+                    درصد گذشته حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را
+                    برای طراحان رایانه</p>
+            </div>
+            <div class="box contact text-center">
+                <h2 class=" text-[2rem]">تماس با من</h2>
+                <div>
+                    <div class="form">
+                        <input class=" border-1 p-3 rounded-lg focus-visible:outline-none" type="email"
+                            placeholder="ایمیل خود را وارد کنید...">
+                        <button type="submit"
+                            class="mt-2 rounded-xl transition hover:bg-[#218838] cursor-pointer py-2 px-4 text-white bg-[#28A745]">ارسال</button>ّ
+                    </div>
+                </div>
+                <div class="social mt-5">
+                    <i class=" bg-slate-300 text-[#000] rounded-full p-1 text-[1.8rem] cursor-pointer ml-4 hover:bg-[#171515] hover:text-[#fff] ri-github-fill"></i>
+                    <i class=" bg-slate-300 text-[#000] rounded-full p-1 text-[1.8rem] cursor-pointer ml-4 ri-instagram-line"></i>
+                    <i class=" bg-slate-300 text-[#000] rounded-full p-1 text-[1.8rem] cursor-pointer ml-4 hover:bg-[#0077b5] hover:text-[#fff] ri-linkedin-fill"></i>
+                    <i class=" bg-slate-300 text-[#000] rounded-full p-1 text-[1.8rem] cursor-pointer ml-4 hover:bg-[#bd081c] hover:text-[#fff] ri-pinterest-line"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+    transition: all .4s ease;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+.background {
+    animation: td 5s infinite ease-in;
+}
+
+p {
+    line-clamp: 4;
+    text-wrap: wrap;
+}
+
+#blogMain p {
+    bottom: calc(50% - 5vh);
+}
+
+#modal div {
+    right: calc(50% + -25.5vh);
+}
+
+#modal::after {
+    position: fixed;
+    content: '';
+    height: 100vh;
+    width: 100vw;
+    background: #00000072;
+    display: block;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+}
+
+.container-md {
+    width: 30rem;
+    margin: 0 auto;
+}
+
+.container-lg {
+    width: 20rem;
+    margin: 0 auto;
+}
+
+#About-me .contact .social i {
+    display: inline-block;
+}
+
+#About-me .contact .social i.ri-instagram-line:hover {
+    color: #fff;
+    background: #FEDA77;
+    background: linear-gradient(380deg, rgba(254, 218, 119, 1) 9%, rgba(81, 91, 212, 1) 40%, rgba(221, 42, 123, 1) 63%, rgba(245, 133, 41, 1) 86%, rgba(129, 52, 175, 1) 100%);
+}
+
+#About-me .box {
+    width: 70%;
+    margin-right: 3rem;
+}
+
+@keyframes td {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
