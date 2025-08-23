@@ -1,2 +1,2 @@
 # Blito
-this is a blog site
+https://nimahadi1388.github.io/Blito/
